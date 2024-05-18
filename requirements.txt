@@ -1,0 +1,7 @@
+numpy
+fastapi
+mangum
+uvicorn
+tensorflow == 2.8.4
+transformers
+tf-keras
