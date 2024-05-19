@@ -16,7 +16,11 @@ handler = Mangum(app)
 PRETRAINED_MODEL_NAME = 'bert-base-uncased'
 MAX_SEQUENCE_LENGTH = 64
 
-multi_model = tf.keras.models.load_model('./model/balanced_multi_model.h5', custom_objects={"TFBertForSequenceClassification": trfs.TFBertForSequenceClassification})
+cwd = os.path.abspath(os.path.dirname(__file__))
+model_path = "./model/balanced_multi_model.h5"
+model_path = os.path.abspath(os.path.join(os.path.join(cwd, model_path)))
+
+multi_model = tf.keras.models.load_model(model_path, custom_objects={"TFBertForSequenceClassification": trfs.TFBertForSequenceClassification})
 
 multi_mappings = {0: 'mild', 1: 'moderate', 2: 'non-depressed', 3: 'severe'}
 
