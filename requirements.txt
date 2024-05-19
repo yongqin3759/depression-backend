@@ -2,6 +2,6 @@ numpy
 fastapi
 mangum
 uvicorn
-tensorflow
+tensorflow == 2.8.4
 transformers
 tf-keras
