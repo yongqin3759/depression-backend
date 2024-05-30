@@ -1,17 +1,15 @@
-FROM tiangolo/uvicorn-gunicorn:python3.8
+FROM tiangolo/uvicorn-gunicorn:python3.9
 
+WORKDIR /code
 
-COPY requirements.txt /app/requirements.txt
+# add requirements file to image
+COPY ./requirements.txt /code/requirements.txt
 
-RUN pip install --no-cache-dir -r /app/requirements.txt
+# install python libraries
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
-COPY ./app /app/app
+# add python code
+COPY ./app/ /code/app/
 
-WORKDIR /app/app
-
-
-# Expose port 9000
-EXPOSE 9000
-
-# Command to run the application
-CMD ["python3", "main.py"]
+# specify default commands
+CMD ["fastapi", "run", "app/main.py", "--port", "80"]
