@@ -60,7 +60,7 @@ def make_prediction(model, processed_data, encoding_mapping):
 
 
 
-@app.get('/predict_depression')
+@app.get('/')
 def predict_depression(text: str):
   processed_data = prepare_data(text, tokenizer)
   result = make_prediction(multi_model, processed_data=processed_data, encoding_mapping=multi_mappings)
