@@ -11,3 +11,6 @@ Go To http://localhost:80/docs#
 Add in text and test for yourself!
 
 ![Swagger APi](swagger.png)
+
+
+Check how I built the classifier in MentallyStable.ipynb
